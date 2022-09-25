@@ -1,0 +1,88 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: consolas;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #111;
+}
+
+.scan {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* https://www.flaticon.com/premium-icon/fingerprint_5004613?k=1657793320259# */
+.scan .fingerprint {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    background: url('fingerprint01.png');
+    background-size: 100px;
+}
+
+.scan .fingerprint::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('fingerprint02.png');
+    background-size: 100px;
+    animation: animate 4s ease-in-out infinite;
+}
+@keyframes animate {
+    0%, 100% {
+        height: 0%;
+    }
+    50% {
+        height: 100%;
+    }
+}
+
+.scan .fingerprint::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: #09FFB8;
+    border-radius: 4px;
+    filter: drop-shadow(0 0 10px #09FFB8) drop-shadow(0 0 20px #09FFB8);
+    animation: animate_line 4s ease-in-out infinite;
+}
+@keyframes animate_line {
+    0%, 100% {
+        top: 0%;
+    }
+    50% {
+        top: 100%;
+    }
+}
+.scan h3 {
+    text-transform: uppercase;
+    font-size: 0.7em;
+    letter-spacing: 2px;
+    margin-top: 20px;
+    color: #09FFB8;
+    filter: drop-shadow(0 0 10px #09FFB8) drop-shadow(0 0 20px #09FFB8);
+    animation: animate_text 0.5s steps(1) infinite;
+}
+@keyframes animate_text {
+    0%, 100% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+}
